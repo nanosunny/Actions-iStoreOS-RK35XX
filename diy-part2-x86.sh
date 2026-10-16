@@ -37,7 +37,7 @@ chmod 755 package/base-files/files/bin/coremark.sh
 
 
 # iStoreOS-settings
-git clone --depth=1 -b main https://github.com/xiaomeng9597/istoreos-settings package/default-settings
+git clone --depth=1 -b main https://github.com/nanosunny/istoreos-settings package/default-settings
 
 
 # 定时限速插件
