@@ -31,8 +31,8 @@ jobs:
       matrix:
         REPO_BRANCH:
           # - main
-          - istoreos-22.03
-          # - istoreos-23.05
+          - istoreos-25.12
+          # - istoreos-24.10
         ARCHITECTURE:
           - x86
         os:
@@ -217,7 +217,7 @@ jobs:
         files: ${{ env.FIRMWARE }}/*
 
     - name: 删除运行记录
-      uses: xiaomeng9597/delete-workflow-runs@main
+      uses: nanosunny/delete-workflow-runs@main
       with:
         retain_days: 20
         keep_minimum_runs: 15

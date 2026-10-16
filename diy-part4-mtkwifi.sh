@@ -15,7 +15,7 @@ cp -f $GITHUB_WORKSPACE/configfiles/adc-keys.txt adc-keys.txt
 cp -f $GITHUB_WORKSPACE/configfiles/ubus_Makefile package/system/ubus/Makefile
 
 # 近期istoreos网站文件服务器不稳定，临时增加一个自定义下载网址
-sed -i "s/push @mirrors, 'https:\/\/mirror2.openwrt.org\/sources';/&\\npush @mirrors, 'https:\/\/github.com\/xiaomeng9597\/files\/releases\/download\/iStoreosFile';/g" scripts/download.pl
+sed -i "s/push @mirrors, 'https:\/\/mirror2.openwrt.org\/sources';/&\\npush @mirrors, 'https:\/\/github.com\/nanosunny\/files\/releases\/download\/iStoreosFile';/g" scripts/download.pl
 
 
 # 修改内核配置文件
@@ -92,12 +92,12 @@ rm -f target/linux/generic/hack-5.10/744-rtl8366_smi-fix-ce-debugfs.patch
 
 
 # 电工大佬的rtl8367b驱动资源包，暂时使用这样替换
-wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b.tar.gz
+wget https://github.com/nanosunny/files/releases/download/files/rtl8367b.tar.gz
 tar -xvf rtl8367b.tar.gz
 
 
 # openwrt主线rtl8367b驱动资源包，暂时使用这样替换
-# wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b-openwrt.tar.gz
+# wget https://github.com/nanosunny/files/releases/download/files/rtl8367b-openwrt.tar.gz
 # tar -xvf rtl8367b-openwrt.tar.gz
 
 
@@ -122,7 +122,7 @@ TARGET_DEVICES += nsy_g68-plus" >> target/linux/rockchip/image/rk35xx.mk
 
 
 # iStoreOS-settings
-git clone --depth=1 -b main https://github.com/xiaomeng9597/istoreos-settings package/default-settings
+git clone --depth=1 -b main https://github.com/nanosunny/istoreos-settings package/default-settings
 
 
 # 定时限速插件

@@ -16,8 +16,8 @@ jobs:
     - name: 下载架构编译配置文件
       run: |
         mkdir -p ./rk35xx
-        wget -O ./rk35xx/feeds.conf https://fw0.koolcenter.com/iStoreOS-22.03/station-p2/feeds.conf --no-check-certificate
-        wget -O ./rk35xx/.config https://fw0.koolcenter.com/iStoreOS-22.03/station-p2/config.buildinfo --no-check-certificate
+        wget -O ./rk35xx/feeds.conf https://fw0.koolcenter.com/iStoreOS/station-p2/feeds.conf --no-check-certificate
+        wget -O ./rk35xx/.config https://fw0.koolcenter.com/iStoreOS/station-p2/config.buildinfo --no-check-certificate
 
         FILE_PATH="./rk35xx/.config"
         if [ -f "$FILE_PATH" ] && [ -s "$FILE_PATH" ]; then
@@ -43,8 +43,8 @@ jobs:
         fi
 
         mkdir -p ./x86
-        wget -O ./x86/feeds.conf https://fw0.koolcenter.com/iStoreOS-22.03/x86_64_efi/feeds.conf --no-check-certificate
-        wget -O ./x86/.config https://fw0.koolcenter.com/iStoreOS-22.03/x86_64_efi/config.buildinfo --no-check-certificate
+        wget -O ./x86/feeds.conf https://fw0.koolcenter.com/iStoreOS/x86_64_efi/feeds.conf --no-check-certificate
+        wget -O ./x86/.config https://fw0.koolcenter.com/iStoreOS/x86_64_efi/config.buildinfo --no-check-certificate
 
     - name: 同步配置
       uses: peaceiris/actions-gh-pages@v3
@@ -59,7 +59,7 @@ jobs:
         commit_message: "Sync files"
 
     - name: 删除运行记录
-      uses: xiaomeng9597/delete-workflow-runs@main
+      uses: nanosunny/delete-workflow-runs@main
       with:
         retain_days: 20
         keep_minimum_runs: 15
