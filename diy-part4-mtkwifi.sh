@@ -68,6 +68,9 @@ chmod 755 package/base-files/files/bin/coremark.sh
 sed -i "s/192.168.100.1/192.168.200.1/g" package/base-files/files/bin/config_generate
 sed -i "s/192.168.1.1/192.168.200.1/g" package/base-files/files/bin/config_generate
 
+# 在 feeds 更新后、编译前执行
+sed -i 's/cmake_minimum_required(VERSION [0-9.]+)/cmake_minimum_required(VERSION 3.5)/' \
+  openwrtCMakeLists.txt
 
 # 加入初始化交换机脚本
 cp -f $GITHUB_WORKSPACE/configfiles/swconfig_install package/base-files/files/etc/init.d/swconfig_install
