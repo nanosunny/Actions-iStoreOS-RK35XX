@@ -15,6 +15,9 @@ echo $date_version > version
 author="nanosunny"
 sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='%D %V ${date_version} by ${author}'/g" package/base-files/files/etc/openwrt_release
 sed -i "s/OPENWRT_RELEASE.*/OPENWRT_RELEASE=\"%D %V ${date_version} by ${author}\"/g" package/base-files/files/usr/lib/os-release
+# 在 feeds 更新后、编译前执行
+sed -i 's/cmake_minimum_required(VERSION [0-9.]+)/cmake_minimum_required(VERSION 3.5)/' \
+  openwrtCMakeLists.txt
 
 # 拉取我的软件包仓库
 # echo 'src-git xmpackages https://github.com/nanosunny/openwrt-packages2.git;main' >> feeds.conf.default
