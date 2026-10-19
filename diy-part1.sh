@@ -17,7 +17,7 @@ sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='%D %V ${date_version} by ${
 sed -i "s/OPENWRT_RELEASE.*/OPENWRT_RELEASE=\"%D %V ${date_version} by ${author}\"/g" package/base-files/files/usr/lib/os-release
 
 # 拉取我的软件包仓库
-echo 'src-git xmpackages https://github.com/nanosunny/openwrt-packages2.git;main' >> feeds.conf.default
+# echo 'src-git xmpackages https://github.com/nanosunny/openwrt-packages2.git;main' >> feeds.conf.default
 
 # 修复 ubus lua子目录 cmake_minimum_required 版本过低
 UBUS_LUA_CMAKE="./package/system/ubus/src/lua/CMakeLists.txt"
