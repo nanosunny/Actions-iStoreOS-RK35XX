@@ -47,10 +47,10 @@ cp -a $GITHUB_WORKSPACE/configfiles/etc/* package/base-files/files/etc/
 
 
 # 集成黑豹X2和荐片TV盒子WiFi驱动，默认不启用WiFi
-# cp -a $GITHUB_WORKSPACE/configfiles/packages/* package/firmware/
-# cp -f $GITHUB_WORKSPACE/configfiles/opwifi package/base-files/files/etc/init.d/opwifi
-# chmod 755 package/base-files/files/etc/init.d/opwifi
-# sed -i "s/wireless.radio\${devidx}.disabled=1/wireless.radio\${devidx}.disabled=0/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
+cp -a $GITHUB_WORKSPACE/configfiles/packages/* package/firmware/
+cp -f $GITHUB_WORKSPACE/configfiles/opwifi package/base-files/files/etc/init.d/opwifi
+chmod 755 package/base-files/files/etc/init.d/opwifi
+sed -i "s/wireless.radio\${devidx}.disabled=1/wireless.radio\${devidx}.disabled=0/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 
 
@@ -117,32 +117,6 @@ echo -e "\\ndefine Device/nsy_g68-plus
   DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-hwmon-pwmfan kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-switch-rtl8367b swconfig kmod-swconfig kmod-r8168 kmod-mt7916-firmware
 endef
 TARGET_DEVICES += nsy_g68-plus" >> target/linux/rockchip/image/rk35xx.mk
-
-
-
-# 增加nsy_g16-plus
-echo -e "\\ndefine Device/nsy_g16-plus
-\$(call Device/rk3568)
-  DEVICE_VENDOR := NSY
-  DEVICE_MODEL := G16
-  DEVICE_DTS := rk3568-nsy-g16-plus
-  SUPPORTED_DEVICES += nsy,g16-plus
-  DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-hwmon-pwmfan kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-switch-rtl8367b swconfig kmod-swconfig kmod-r8168 kmod-mt7615-firmware
-endef
-TARGET_DEVICES += nsy_g16-plus" >> target/linux/rockchip/image/rk35xx.mk
-
-
-
-# 增加bdy_g18-pro
-echo -e "\\ndefine Device/bdy_g18-pro
-\$(call Device/rk3568)
-  DEVICE_VENDOR := BDY
-  DEVICE_MODEL := G18
-  DEVICE_DTS := rk3568-bdy-g18-pro
-  SUPPORTED_DEVICES += bdy,g18-pro
-  DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-hwmon-pwmfan kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-switch-rtl8367b swconfig kmod-swconfig kmod-r8168 kmod-mt7615-firmware
-endef
-TARGET_DEVICES += bdy_g18-pro" >> target/linux/rockchip/image/rk35xx.mk
 
 
 
